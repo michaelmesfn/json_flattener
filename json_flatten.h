@@ -2,7 +2,7 @@
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
 //for nlohmann 3.9 and higher use:
-    //using json = nlohmann::ordered_json;
+//using json = nlohmann::ordered_json;
 using namespace std;
 
 json result;
@@ -20,14 +20,11 @@ void recurse(T cur, string prop)
         for (auto &p : cur.items())
         {
             isEmpty = false;
-            recurse <json> (cur[p.key()],  !prop.empty() ? prop + "." + p.key() : p.key());
-            if (isEmpty == true && !prop.empty()) {
-                result [prop] = {};
+            recurse<json>(cur[p.key()], !prop.empty() ? prop + "." + p.key() : p.key());
+            if (isEmpty == true && !prop.empty())
+            {
+                result[prop] = {};
             }
         }
     }
-}
-
-int sum (int a, int b) {
-    return a+b;
 }

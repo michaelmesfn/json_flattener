@@ -15,4 +15,5 @@ int main()
     json data = json::parse(input);
     recurse<json>(data, "");
     cout << result.dump(4) << endl;
+    return 0;
 }
